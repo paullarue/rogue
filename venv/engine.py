@@ -14,7 +14,7 @@ def main():
 
     colors = {
         'dark_wall': tcod.Color(0,0,100),
-        'dark_ground': tcod.Color(50,50,150)o
+        'dark_ground': tcod.Color(50,50,150)
     }
 
 
@@ -30,6 +30,8 @@ def main():
     con = tcod.console_new(screen_width , screen_height)
 
     game_map = GameMap(map_width, map_height)
+    game_map.make_map()
+
     key = tcod.Key()
     mouse = tcod.Mouse()
 
