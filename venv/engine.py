@@ -17,7 +17,7 @@ def main():
 
     room_max_size = 10
     room_min_size = 6
-    max_rooms 30
+    max_rooms = 30
 
     colors = {
         'dark_wall': tcod.Color(0,0,100),
@@ -25,9 +25,9 @@ def main():
     }
 
 
-    player = Entity( int(screen_width / 2) , int(screen_height / 2) , '@' , tcod.white)
-    entities = [player]
-
+    player = Entity(int(screen_width / 2), int(screen_height / 2), '@', tcod.white)
+    npc = Entity(int(screen_width / 2 - 5), int(screen_height / 2), '@', tcod.yellow)
+    entities = [npc, player]
 
 
     tcod.console_set_custom_font('arial10x10.png', tcod.FONT_TYPE_GREYSCALE | tcod.FONT_LAYOUT_TCOD)
