@@ -13,15 +13,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/engine.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+            <state relative-caret-position="300">
+              <caret line="40" column="54" selection-start-line="40" selection-start-column="54" selection-end-line="40" selection-end-column="54" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <marker date="1568558048399" expanded="false" signature="218:460" ph="..." />
+                <marker date="1568564428782" expanded="false" signature="274:516" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/fov_functions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="13" column="71" selection-start-line="13" selection-start-column="71" selection-end-line="13" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -74,11 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venv/render_functions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="560">
+              <caret line="28" column="27" lean-forward="true" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -95,6 +104,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>libtcod</find>
+      <find>console</find>
     </findStrings>
     <replaceStrings>
       <replace>tcod</replace>
@@ -109,10 +119,11 @@
         <option value="$PROJECT_DIR$/venv/input_handlers.py" />
         <option value="$PROJECT_DIR$/venv/entity.py" />
         <option value="$PROJECT_DIR$/venv/map_objects/tile.py" />
-        <option value="$PROJECT_DIR$/venv/render_functions.py" />
         <option value="$PROJECT_DIR$/venv/map_objects/rectangle.py" />
         <option value="$PROJECT_DIR$/venv/map_objects/game_map.py" />
+        <option value="$PROJECT_DIR$/venv/fov_functions.py" />
         <option value="$PROJECT_DIR$/venv/engine.py" />
+        <option value="$PROJECT_DIR$/venv/render_functions.py" />
       </list>
     </option>
   </component>
@@ -280,20 +291,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/input_handlers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/render_functions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/map_objects/rectangle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -311,14 +308,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/engine.py">
+    <entry file="file://$PROJECT_DIR$/venv/fov_functions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
-          <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+          <caret line="13" column="71" selection-start-line="13" selection-start-column="71" selection-end-line="13" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/input_handlers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/engine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="40" column="54" selection-start-line="40" selection-start-column="54" selection-end-line="40" selection-end-column="54" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <marker date="1568558048399" expanded="false" signature="218:460" ph="..." />
+            <marker date="1568564428782" expanded="false" signature="274:516" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/render_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="28" column="27" lean-forward="true" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
         </state>
       </provider>
     </entry>

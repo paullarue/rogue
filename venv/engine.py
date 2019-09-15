@@ -1,6 +1,7 @@
 import tcod
 from input_handlers import handle_keys
 from entity import Entity
+from fov_functions import initialize_fov, recompute_fov
 from render_functions import clear_all, render_all
 from map_objects.game_map import GameMap
 
@@ -47,13 +48,18 @@ def main():
 
     fov_recompute = True
 
+    fov_map = initialize_fov(game_map)
+
     key = tcod.Key()
     mouse = tcod.Mouse()
 
     while not tcod.console_is_window_closed():
         tcod.sys_check_for_event(tcod.EVENT_KEY_PRESS, key, mouse)
+        if fov_recompute:
+            recompute_fov(fov_map, player.x, player.y, fov_radius)
 
-        render_all(con, entities, game_map, screen_width, screen_height, colors)
+        render_all(con, entities, game_map, fov_map, fov_recompute, screen_width, screen_height, colors)
+        fov_recompute = False
         tcod.console_flush()
         clear_all(con, entities)
 
@@ -67,6 +73,7 @@ def main():
             dx, dy = move
             if not game_map.is_blocked(player.x +dx, player.y +dy):
                 player.move(dx,dy)
+                fov_recompute = True
 
         if exit:
             return True
