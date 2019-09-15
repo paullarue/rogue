@@ -16,10 +16,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venv/engine.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="260">
+              <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
+                <marker date="1568558048399" expanded="false" signature="218:460" ph="..." />
               </folding>
             </state>
           </provider>
@@ -110,8 +111,8 @@
         <option value="$PROJECT_DIR$/venv/map_objects/tile.py" />
         <option value="$PROJECT_DIR$/venv/render_functions.py" />
         <option value="$PROJECT_DIR$/venv/map_objects/rectangle.py" />
-        <option value="$PROJECT_DIR$/venv/engine.py" />
         <option value="$PROJECT_DIR$/venv/map_objects/game_map.py" />
+        <option value="$PROJECT_DIR$/venv/engine.py" />
       </list>
     </option>
   </component>
@@ -154,7 +155,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Python" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -312,10 +313,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/engine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="260">
+          <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
+            <marker date="1568558048399" expanded="false" signature="218:460" ph="..." />
           </folding>
         </state>
       </provider>
