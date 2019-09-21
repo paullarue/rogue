@@ -101,10 +101,10 @@ class GameMap:
             if not any([entity for entity in entities if entity.x == x and entity.y == y]):
                 # 80% chance to spawn an orc
                 if randint(0, 100)< 80:
-                    monster = Entity(x, y, 'o', tcod.desaturated_green)
+                    monster = Entity(x, y, 'o', tcod.desaturated_green, 'Orc', blocks=True)
                 # 20% chance to spawn a troll
                 else:
-                    monster = Entity(x, y, 'T', tcod.darker_green)
+                    monster = Entity(x, y, 'T', tcod.darker_green, 'Troll', blocks=True)
                 entities.append(monster)
 
 
