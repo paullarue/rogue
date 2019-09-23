@@ -1,10 +1,14 @@
+from turtledemo.planet_and_moon import G
+
 import tcod
+from compenents.fighter import Fighter
+from game_states import GameStates
 from input_handlers import handle_keys
-from entity import Entity
+from entity import Entity, get_blocking_entities_at_location
 from fov_functions import initialize_fov, recompute_fov
 from render_functions import clear_all, render_all
 from map_objects.game_map import GameMap
-
+from setuptools.command.easy_install import easy_install
 
 
 def main():
@@ -34,8 +38,8 @@ def main():
         'light_ground': tcod.Color(200,180,50)
     }
 
-
-    player = Entity(0, 0, '@', tcod.white)
+    fighter_component = Fighter(hp=30,defense=2,power=5)
+    player = Entity(0, 0, '@', tcod.white, 'Player', blocks=True, fighter = fighter_component)
     entities = [player]
 
 
@@ -54,6 +58,8 @@ def main():
     key = tcod.Key()
     mouse = tcod.Mouse()
 
+    game_state = GameStates.PLAYERS_TURN
+
     while not tcod.console_is_window_closed():
         tcod.sys_check_for_event(tcod.EVENT_KEY_PRESS, key, mouse)
         if fov_recompute:
@@ -70,17 +76,36 @@ def main():
         exit = action.get('exit')
         fullscreen = action.get('fullscreen')
 
-        if move:
+        if move and game_state == GameStates.PLAYERS_TURN:
             dx, dy = move
-            if not game_map.is_blocked(player.x +dx, player.y +dy):
-                player.move(dx,dy)
-                fov_recompute = True
+
+            destination_x = player.x + dx
+            destination_y = player.y + dy
+
+            if not game_map.is_blocked(destination_x, destination_y):
+                target = get_blocking_entities_at_location(entities, destination_x, destination_y)
+
+                if target:
+                    player.fighter.attack(target)
+                else:
+                    player.move(dx, dy)
+
+                    fov_recompute = True
+
+                game_state = GameStates.ENEMY_TURN
 
         if exit:
             return True
 
         if fullscreen:
             tcod.console_set_fullscreen((not tcod.console_is_fullscreen()))
+
+        if game_state == GameStates.ENEMY_TURN:
+            for entity in entities:
+                if entity.ai
+                    entity.ai.take_turn(player, fov_map, game_map, entities)
+
+            game_state = GameStates.PLAYERS_TURN
 
 if __name__ == '__main__':
     main()
