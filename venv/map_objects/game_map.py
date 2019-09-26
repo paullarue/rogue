@@ -1,9 +1,11 @@
 import tcod
 from random import randint
 
-from entity import Entity
 from map_objects.tile import Tile
 from map_objects.rectangle import Rect
+from components.fighter import Fighter
+from components.ai import BasicMonster
+from entity import Entity
 
 class GameMap:
     def __init__(self, width, height):
@@ -107,8 +109,10 @@ class GameMap:
                                      fighter = fighter_component, ai=ai_component)
                 # 20% chance to spawn a troll
                 else:
-                    fighter_component = Fighter(hp=16,defense=1, power=4)
-                    monster = Entity(x, y, 'T', tcod.darker_green, 'Troll', blocks=True)
+                    fighter_component = Fighter(hp=16, defense=1, power=4)
+                    ai_component = BasicMonster()
+                    monster = Entity(x, y, 'T', tcod.darker_green, 'Troll', blocks=True,
+                                     fighter = fighter_component, ai = ai_component)
                 entities.append(monster)
 
 
