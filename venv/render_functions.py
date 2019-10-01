@@ -10,18 +10,19 @@ class RenderOrder(Enum):
 def render_bar(panel, x, y, total_width, name, value, maximum, bar_color, back_color):
     bar_width = int(float(value) / maximum * total_width)
 
-    tcod.console_set_default_background(panel, back_color)
-    tcod.console_rect(panel, x, y, total_width, 1, False, tcod.BKGND_SCREEN)
+    panel.default_bg = back_color
+    #tcod.console_set_default_background(panel, back_color)
+    panel.draw_rect(x,y, total_width, 1, 0, back_color, bar_color)
+    #tcod.console_rect(panel, x, y, total_width, 1, False, tcod.BKGND_SCREEN)
 
-    tcod.console_set_default_background(panel, bar_color)
     if bar_width > 0:
-        tcod.console_rect(panel, x, y, bar_width, 1, False, tcod.BKGND_SCREEN)
+        panel.draw_rect(x, y, total_width, 1, 0, back_color, bar_color)
 
     tcod.console_set_default_foreground(panel, tcod.white)
     tcod.console_print_ex(panel, int(x + total_width / 2), y, tcod.BKGND_NONE, tcod.CENTER,
                              '{0}: {1}/{2}'.format(name, value, maximum))
 
-def render_all(con, panel, entities, player, game_map, fov_map, fov_recompute, screen_width, screen_height,
+def render_all(con, panel, entities, player, game_map, fov_map, fov_recompute, message_log, screen_width, screen_height,
                bar_width, panel_height, panel_y, colors):
     # Draw entities from list
     if fov_recompute:
@@ -52,8 +53,22 @@ def render_all(con, panel, entities, player, game_map, fov_map, fov_recompute, s
     tcod.console_set_default_foreground(panel, tcod.black)
     tcod.console_clear(panel)
 
+    # Print the game messages, one line at a time
+
     render_bar(panel, 1, 1, bar_width, 'HP', player.fighter.hp, player.fighter.max_hp,
-               tcod.light_red, tcod.darker_red)
+               tcod.red, tcod.black)
+
+    y = 1
+    for message in message_log.messages:
+        #panel.default_fg = message.color
+        #panel.print(message_log.x, y, message.text)
+        tcod.console_set_default_foreground(panel, message.color)
+        tcod.console_print_ex(panel, message_log.x, y, tcod.BKGND_NONE, tcod.LEFT, message.text)
+        y += 1
+
+    # Debug
+    tcod.console_print_ex(panel, message_log.x, y, tcod.BKGND_NONE, tcod.LEFT, 'Debug!')
+
 
     tcod.console_blit(panel, 0, 0, screen_width, panel_height, 0, 0, panel_y)
 
