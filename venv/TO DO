@@ -1,0 +1,7 @@
+[] - Cap player health min to 0 (ie. can't be overkilled)
+[] - Increase vertical size of bottom panel
+[] - Separate console for persistent message log
+    [] - Show/hide on a keypress ('L'?)
+[] - Improve mouseover functionality for entities
+    [] - Create new panel area to show text
+    [] - Name, stats, etc.
