@@ -20,7 +20,7 @@ class GameMap:
         return tiles
 
     def make_map(self, max_rooms, room_min_size, room_max_size, map_width, map_height, player,
-                 entities, max_monsters_per_room):
+                 entities, max_monsters_per_room, max_items_per_room):
         rooms = []
         num_rooms = 0
 
@@ -66,7 +66,7 @@ class GameMap:
                         self.create_v_tunnel(prev_y, new_y, prev_x)
                         self.create_h_tunnel(prev_x, new_x, new_y)
 
-                self.place_entities(new_room, entities, max_monsters_per_room)
+                self.place_entities(new_room, entities, max_monsters_per_room, max_items_per_room)
 
                 # Append new room to the list
                 rooms.append(new_room)
@@ -93,10 +93,12 @@ class GameMap:
             self.tiles[x][y].block_sight = False
 
     # Places monsters inside rooms
-    def place_entities(self, room, entities, max_monsters_per_room):
+    def place_entities(self, room, entities, max_monsters_per_room, max_items_per_room):
         # Get random number of monsters
         number_of_monsters = randint(0, max_monsters_per_room)
+        number_of_items = randint(0, max_items_per_room)
 
+        # Spawn monsters
         for i in range(number_of_monsters):
             # Choose random location within room
             x = randint(room.x1 + 1, room.x2 - 1)
@@ -116,6 +118,16 @@ class GameMap:
                     monster = Entity(x, y, 'T', tcod.darker_green, 'Troll', blocks=True,
                                      render_order=RenderOrder.ACTOR, fighter = fighter_component, ai = ai_component)
                 entities.append(monster)
+
+        # Spawn items
+        for i in range(number_of_items):
+            x = randint(room.x1 + 1, room.x2 - 1)
+            y = randint(room.y1 + 1, room.y2 - 1)
+
+            if not any([entity for entity in entities if entity.x == x and entity.y == y]):
+                item = Entity(x, y, '!', tcod.violet, 'Healing Potion, render_order=RenderOrder.ITEM')
+
+                entities.append(item)
 
 
     def is_blocked(self,x,y):
