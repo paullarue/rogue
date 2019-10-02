@@ -12,11 +12,11 @@ def render_bar(panel, x, y, total_width, name, value, maximum, bar_color, back_c
 
     panel.default_bg = back_color
     #tcod.console_set_default_background(panel, back_color)
-    panel.draw_rect(x,y, total_width, 1, 0, back_color, bar_color)
+    panel.draw_rect(x,y, total_width, 1, 0, bar_color, back_color)
     #tcod.console_rect(panel, x, y, total_width, 1, False, tcod.BKGND_SCREEN)
 
     if bar_width > 0:
-        panel.draw_rect(x, y, total_width, 1, 0, back_color, bar_color)
+        panel.draw_rect(x, y, bar_width, 1, 0, back_color, bar_color)
 
     tcod.console_set_default_foreground(panel, tcod.white)
     tcod.console_print_ex(panel, int(x + total_width / 2), y, tcod.BKGND_NONE, tcod.CENTER,
@@ -67,7 +67,7 @@ def render_all(con, panel, entities, player, game_map, fov_map, fov_recompute, m
         y += 1
 
     # Debug
-    tcod.console_print_ex(panel, message_log.x, y, tcod.BKGND_NONE, tcod.LEFT, 'Debug!')
+    #tcod.console_print_ex(panel, message_log.x, y, tcod.BKGND_NONE, tcod.LEFT, 'Debug!')
 
 
     tcod.console_blit(panel, 0, 0, screen_width, panel_height, 0, 0, panel_y)
