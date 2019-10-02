@@ -57,7 +57,7 @@ def main():
     entities = [player]
 
 
-    tcod.console_set_custom_font('arial10x10.png', tcod.FONT_TYPE_GREYSCALE | tcod.FONT_LAYOUT_TCOD)
+    tcod.console_set_custom_font('Bisasam_24x24.png', tcod.FONT_TYPE_GREYSCALE | tcod.FONT_LAYOUT_CP437)
 
     tcod.console_init_root(screen_width, screen_height, 'tcodtutorial revised', False,renderer=tcod.RENDERER_SDL2)
     con = tcod.console.Console(screen_width , screen_height)
