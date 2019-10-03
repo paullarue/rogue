@@ -29,6 +29,9 @@ def handle_keys(key):
     elif key_char == 'n':
         return {'move': (1, 1)}
 
+    elif key_char == 'g':
+        return {'pickup': True}
+
 
     # Utility Keys
     if key.vk == tcod.KEY_ENTER and key.lalt:
