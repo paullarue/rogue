@@ -13,7 +13,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/engine.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="995">
@@ -21,6 +21,15 @@
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/venv/menus.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="700">
+              <caret line="35" column="9" lean-forward="true" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -105,9 +114,13 @@
       <find>place</find>
       <find>place_en</find>
       <find>make</find>
-      <find>action</find>
       <find>item</find>
+      <find>action</find>
+      <find>libtcod</find>
     </findStrings>
+    <replaceStrings>
+      <replace>tcod</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -123,10 +136,11 @@
         <option value="$PROJECT_DIR$/venv/input_handlers.py" />
         <option value="$PROJECT_DIR$/venv/components/inventory.py" />
         <option value="$PROJECT_DIR$/venv/engine.py" />
+        <option value="$PROJECT_DIR$/venv/menus.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-2567" />
     <option name="width" value="1294" />
     <option name="height" value="1407" />
@@ -294,10 +308,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2567" y="0" width="1294" height="1407" extended-state="0" />
+    <frame x="-2568" y="-8" width="2576" height="1416" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12371946" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -423,6 +437,13 @@
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/menus.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="35" column="9" lean-forward="true" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
         </state>
       </provider>
     </entry>
