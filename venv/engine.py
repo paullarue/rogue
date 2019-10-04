@@ -83,6 +83,7 @@ def main():
     mouse = tcod.Mouse()
 
     game_state = GameStates.PLAYERS_TURN
+    previous_game_state = game_state
 
     while not tcod.console_is_window_closed():
         tcod.sys_check_for_event(tcod.EVENT_KEY_PRESS | tcod.EVENT_MOUSE, key, mouse)
@@ -90,20 +91,23 @@ def main():
             recompute_fov(fov_map, player.x, player.y, fov_radius)
 
         render_all(con, panel, entities, player, game_map, fov_map, fov_recompute, message_log, screen_width, screen_height,
-                   bar_width, panel_height, panel_y, mouse, colors)
+                   bar_width, panel_height, panel_y, mouse, colors, game_state)
         fov_recompute = False
         tcod.console_flush()
         clear_all(con, entities)
 
-        action = handle_keys(key)
+        action = handle_player_turn_keys(key, game_state)
 
         move = action.get('move')
         pickup = action.get('pickup')
         exit = action.get('exit')
         fullscreen = action.get('fullscreen')
+        show_inventory = action.get('show_inventory')
 
         player_turn_results = []
 
+
+        # Move and/or attack action
         if move and game_state == GameStates.PLAYERS_TURN:
             dx, dy = move
 
@@ -122,7 +126,7 @@ def main():
                     fov_recompute = True
 
                 game_state = GameStates.ENEMY_TURN
-
+        # Picking up an item
         elif pickup and game_state == GameStates.PLAYERS_TURN:
             for entity in entities:
                 if entity.item and entity.x == player.x and entity.y == player.y:
@@ -133,9 +137,21 @@ def main():
             else:
                 message_log.add_message(Message('There is nothing here to pick up.',tcod.yellow))
 
-        if exit:
-            return True
 
+        # Open inventory
+        if show_inventory:
+            previous_game_state = game_state
+            game_state = GameStates.SHOW_INVENTORY
+
+        # Exit game
+        if exit:
+            if game_state == GameStates.SHOW_INVENTORY:
+                # Escape from inventory menu back to game
+                game_state - previous_game_state
+            else:
+                return True
+
+        # Set to fullscreen
         if fullscreen:
             tcod.console_set_fullscreen((not tcod.console_is_fullscreen()))
 
