@@ -1,5 +1,6 @@
-import tcod
 from game_messages import Message
+import tcod
+
 
 # Component for inventory
 class Inventory:
@@ -10,7 +11,7 @@ class Inventory:
     def add_item(self, item):
         results = []
 
-        if len(self.item) >= self.capacity:
+        if len(self.items) >= self.capacity:
             # Cant carry more than inventory capacity
             results.append({
                 'item_added': None,

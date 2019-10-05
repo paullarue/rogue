@@ -31,3 +31,4 @@ class Fighter:
             results.append({'message': Message('{0} attacks {1} but does no damage.'.format(
                                self.owner.name.capitalize(), target.name), tcod.white)})
         return results
+

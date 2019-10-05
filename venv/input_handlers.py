@@ -41,9 +41,11 @@ def handle_player_turn_keys(key):
     elif key_char == 'n':
         return {'move': (1, 1)}
 
+    # "Grab" item from ground
     elif key_char == 'g':
         return {'pickup': True}
 
+    # Show inventory
     elif key_char == 'i':
         return{'show_inventory': True}
 

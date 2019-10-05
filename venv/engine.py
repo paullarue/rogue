@@ -96,13 +96,14 @@ def main():
         tcod.console_flush()
         clear_all(con, entities)
 
-        action = handle_player_turn_keys(key, game_state)
+        action = handle_keys(key, game_state)
 
         move = action.get('move')
         pickup = action.get('pickup')
         exit = action.get('exit')
         fullscreen = action.get('fullscreen')
         show_inventory = action.get('show_inventory')
+        inventory_index = action.get('inventory_index')
 
         player_turn_results = []
 
@@ -143,11 +144,15 @@ def main():
             previous_game_state = game_state
             game_state = GameStates.SHOW_INVENTORY
 
+        if inventory_index is not None and previous_game_state != GameStates.PLAYER_DEAD and inventory_index < len(player.inventory.items):
+            item = player.inventory.items[inventory_index]
+            print(item.name)
+
         # Exit game
         if exit:
             if game_state == GameStates.SHOW_INVENTORY:
                 # Escape from inventory menu back to game
-                game_state - previous_game_state
+                game_state = previous_game_state
             else:
                 return True
 
